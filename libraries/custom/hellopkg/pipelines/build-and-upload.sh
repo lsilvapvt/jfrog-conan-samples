@@ -18,12 +18,6 @@ export MY_BUILD_STARTDATE=$(date --utc "+%FT%T.%N" | sed -r 's/[[:digit:]]{6}$/Z
 # extract package version from conanfile.py
 export MY_PKG_VERSION=$(cat conanfile.py | cat conanfile.py | sed -n -e '/version \=/ s/.*\= *//p' | tr -d '"')
 
-# prepare artifactory config 
-echo "" > ~/.conan/artifacts.properties
-echo "artifact_property_build.name=${MY_BUILD_NAME}" >> ~/.conan/artifacts.properties
-echo "artifact_property_build.number=${MY_BUILD_NUMBER}" >> ~/.conan/artifacts.properties
-echo "artifact_property_build.timestamp=${MY_BUILD_TIMESTAMP}" >> ~/.conan/artifacts.properties
-
 conan profile new default --detect
 conan profile update settings.compiler.libcxx=libstdc++11 default
 
@@ -36,6 +30,12 @@ export CONAN_TRACE_FILE=/tmp/traces.log
 export BUILD_INFO_FILE=/tmp/build_info.json
 rm ${CONAN_TRACE_FILE}
 rm ${BUILD_INFO_FILE}
+
+# prepare artifactory config 
+echo "" > ~/.conan/artifacts.properties
+echo "artifact_property_build.name=${MY_BUILD_NAME}" >> ~/.conan/artifacts.properties
+echo "artifact_property_build.number=${MY_BUILD_NUMBER}" >> ~/.conan/artifacts.properties
+echo "artifact_property_build.timestamp=${MY_BUILD_TIMESTAMP}" >> ~/.conan/artifacts.properties
 
 conan create .
 
