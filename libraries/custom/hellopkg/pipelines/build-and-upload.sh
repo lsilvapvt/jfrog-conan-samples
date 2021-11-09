@@ -22,14 +22,12 @@ conan profile new default --detect
 conan profile update settings.compiler.libcxx=libstdc++11 default
 
 # conan add remote 
+export CONAN_REVISIONS_ENABLED=1
 conan remote add rtsaas ${RT_CONAN_REPO_URL}
 conan user -r rtsaas ${RT_USERNAME} -p ${RT_PASSWORD}
-export CONAN_REVISIONS_ENABLED=1
 
 export CONAN_TRACE_FILE=/tmp/traces.log
 export BUILD_INFO_FILE=/tmp/build_info.json
-rm ${CONAN_TRACE_FILE}
-rm ${BUILD_INFO_FILE}
 
 # prepare artifactory config 
 echo "" > ~/.conan/artifacts.properties
