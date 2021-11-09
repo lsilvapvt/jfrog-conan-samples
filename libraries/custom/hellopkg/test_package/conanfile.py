@@ -6,6 +6,8 @@ from conan.tools.layout import cmake_layout
 
 
 class HelloTestConan(ConanFile):
+    name = "hello"
+    version = "0.2"    
     settings = "os", "compiler", "build_type", "arch"
     # VirtualBuildEnv and VirtualRunEnv can be avoided if "tools.env.virtualenv:auto_use" is defined
     # (it will be defined in Conan 2.0)
