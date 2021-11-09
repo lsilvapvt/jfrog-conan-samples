@@ -2,17 +2,17 @@
 # cd jfrog-conan-samples/libraries/custom/hellopkg
 
 #define all PIPELINE_PARAM_* parameters below in the Jenkins pipeline config 
-export RT_USERNAME=$PIPELINE_PARAM_PASSWORD
-export RT_PASSWORD=$PIPELINE_PARAM_USERNAME
+export RT_USERNAME=$PIPELINE_PARAM_USERNAME
+export RT_PASSWORD=$PIPELINE_PARAM_PASSWORD
 export RT_CONAN_REPO_URL=$PIPELINE_PARAM_CONAN_REPO_URL  # e.g. https://myrt.com/artifactory/api/conan/conan-repo
 export RT_API_URL=$PIPELINE_PARAM_RT_API_URL # e.g. https://myrt.com/artifactory/api/build
 
 export MY_BUILD_NAME=$JOB_BASE_NAME
 export MY_BUILD_NUMBER=$BUILD_NUMBER
-# TBD - extract from conan file
-export MY_PKG_VERSION=0.5
 export MY_BUILD_TIMESTAMP=$(date +%s)
 export MY_BUILD_STARTDATE=$(date --utc "+%FT%T.%N" | sed -r 's/[[:digit:]]{6}$/Z/')
+# extract package version from conanfile.py
+export MY_PKG_VERSION=$(cat conanfile.py | cat conanfile.py | sed -n -e '/version \=/ s/.*\= *//p' | tr -d '"')
 
 # prepare artifactory config 
 echo "" > ~/.conan/artifacts.properties
