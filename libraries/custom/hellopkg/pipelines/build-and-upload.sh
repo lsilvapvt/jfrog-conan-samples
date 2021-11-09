@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 # git clone https://github.com/lsilvapvt/jfrog-conan-samples.git
 # cd jfrog-conan-samples/libraries/custom/hellopkg
 
