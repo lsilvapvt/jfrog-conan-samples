@@ -1,5 +1,5 @@
-#include "hello.h"
+#include "hellopkg.h"
 
 int main() {
-    hello();
+    hellopkg();
 }

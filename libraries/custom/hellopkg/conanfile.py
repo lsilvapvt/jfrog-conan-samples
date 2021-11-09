@@ -3,15 +3,15 @@ from conan.tools.cmake import CMakeToolchain, CMake
 from conan.tools.layout import cmake_layout
 
 
-class HelloConan(ConanFile):
-    name = "hello"
+class HellopkgConan(ConanFile):
+    name = "hellopkg"
     version = "0.1"
 
     # Optional metadata
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
     url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of Hello here>"
+    description = "<Description of Hellopkg here>"
     topics = ("<Put some tag here>", "<here>", "<and here>")
 
     # Binary configuration
@@ -43,4 +43,4 @@ class HelloConan(ConanFile):
         cmake.install()
 
     def package_info(self):
-        self.cpp_info.libs = ["hello"]
+        self.cpp_info.libs = ["hellopkg"]
