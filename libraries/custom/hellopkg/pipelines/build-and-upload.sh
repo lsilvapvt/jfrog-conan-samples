@@ -1,5 +1,5 @@
-git clone https://github.com/lsilvapvt/jfrog-conan-samples.git
-cd jfrog-conan-samples/libraries/custom/hellopkg
+# git clone https://github.com/lsilvapvt/jfrog-conan-samples.git
+# cd jfrog-conan-samples/libraries/custom/hellopkg
 
 #define all PIPELINE_PARAM_* parameters below in the Jenkins pipeline config 
 export RT_USERNAME=$PIPELINE_PARAM_PASSWORD
