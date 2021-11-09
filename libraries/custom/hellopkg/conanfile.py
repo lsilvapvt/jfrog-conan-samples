@@ -5,7 +5,7 @@ from conan.tools.layout import cmake_layout
 
 class HellopkgConan(ConanFile):
     name = "hellopkg"
-    version = "0.4"
+    version = "0.5"
 
     # Optional metadata
     license = "myLicense"
