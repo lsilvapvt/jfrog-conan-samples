@@ -5,14 +5,14 @@ from conan.tools.layout import cmake_layout
 
 class HellopkgConan(ConanFile):
     name = "hellopkg"
-    version = "0.1"
+    version = "0.4"
 
     # Optional metadata
-    license = "<Put the package license here>"
-    author = "<Put your name here> <And your email here>"
-    url = "<Package recipe repository url here, for issues about the package>"
-    description = "<Description of Hellopkg here>"
-    topics = ("<Put some tag here>", "<here>", "<and here>")
+    license = "myLicense"
+    author = "John Doe"
+    url = "https://myartifactory.com/conan"
+    description = "Test hello pkg"
+    topics = ("conan","hello")
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"
