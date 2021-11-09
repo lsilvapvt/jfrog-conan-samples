@@ -3,6 +3,8 @@
 !*/build.sh
 .vscode/
 
+**/build_info.json
+
 # Compiled Object files
 *.slo
 *.lo
