@@ -10,7 +10,7 @@ The purpose of this sample repository is to test and demonstrate how to automate
 
 ## Jenkins CI pipeline sample 
 
-For notes on how to setup Jenkins to run Conan builds, please see [this page](../../ci/jenkins).
+For notes on how to setup Jenkins to run Conan builds, please see [this page](../../../ci/jenkins).
 
 File [`jenkins-pipeline.dsl`](./pipelines/jenkins-pipeline.dsl) provides a very simple declarative pipeline sample that can be used to create a Jenkins pipeline item. This sample pipeline simply wraps up the git repo cloning and the execution of [`build-and-upload.sh`](./pipelines/build-and-upload.sh). 
 

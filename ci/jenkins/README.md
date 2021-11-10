@@ -40,7 +40,7 @@ The easiest way to use it is to deploy Jenkins as a helm chart, which installs a
 
 Once the Jenkins server is up and running and the custom executor container image has been configured, then a Jenkins pipeline be configured for a Conan package build.
 
-See the example of [`jenkins-pipeline.dsl`](../libraries/custom/hellopkg/pipelines/jenkins-pipeline.dsl) for a sample `hellopkg` conan recipe that gets built and published to an artifactory server.
+See the example of [`jenkins-pipeline.dsl`](../../../libraries/custom/hellopkg/pipelines/jenkins-pipeline.dsl) for a sample `hellopkg` conan recipe that gets built and published to an artifactory server.
 
 ---
 
