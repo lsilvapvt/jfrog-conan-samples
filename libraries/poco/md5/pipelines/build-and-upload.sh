@@ -37,7 +37,7 @@ echo "artifact_property_build.timestamp=${MY_BUILD_TIMESTAMP}" >> ~/.conan/artif
 
 
 # prepare JFrog CLI 
-jfrog config add jpd --url "RT_URL" --user "$RT_USERNAME" --password "$PIPELINE_PARAM_PASSWORD" --overwrite --interactive=false
+jfrog config add jpd --url "${RT_URL}" --user "${RT_USERNAME}" --password "${RT_PASSWORD}" --overwrite --interactive=false
 
 # Build application 
 mkdir build
