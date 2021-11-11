@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 # git clone https://github.com/lsilvapvt/jfrog-conan-samples.git
 # cd jfrog-conan-samples/libraries/custom/hellopkg
@@ -43,7 +43,7 @@ jfrog config add jpd --url "RT_URL" --user "$RT_USERNAME" --password "$PIPELINE_
 mkdir build
 cd build  
 
-conan install .. --build=missing
+conan install .. --build=missing -r rtsaas
 cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
 cmake --build .
 
