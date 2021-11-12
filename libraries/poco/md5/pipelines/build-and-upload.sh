@@ -35,9 +35,11 @@ echo "artifact_property_build.name=${MY_BUILD_NAME}" >> ~/.conan/artifacts.prope
 echo "artifact_property_build.number=${MY_BUILD_NUMBER}" >> ~/.conan/artifacts.properties
 echo "artifact_property_build.timestamp=${MY_BUILD_TIMESTAMP}" >> ~/.conan/artifacts.properties
 
-
 # prepare JFrog CLI 
 jfrog config add jpd --url "${RT_URL}" --user "${RT_USERNAME}" --password "${RT_PASSWORD}" --overwrite --interactive=false
+export JFROG_CLI_BUILD_NAME=$MY_BUILD_NAME
+export JFROG_CLI_BUILD_NUMBER=$MY_BUILD_NUMBER
+export JFROG_CLI_BUILD_URL=$BUILD_URL
 
 # Build application 
 mkdir build
@@ -58,9 +60,12 @@ cat ${BUILD_INFO_FILE} | \
        --arg started "${MY_BUILD_STARTDATE}"  \
        '. + {name: $name,number: $number,started: $started}' > ./build_info.json 
 
-curl -X PUT -u${RT_USERNAME}:${RT_PASSWORD} \
-       -H "Content-type: application/json" \
-       -T ./build_info.json \
-       ${RT_API_URL}
-
+# curl -X PUT -u${RT_USERNAME}:${RT_PASSWORD} \
+#        -H "Content-type: application/json" \
+#        -T ./build_info.json \
+#        ${RT_API_URL}
 export CONAN_TRACE_FILE=
+
+jfrog rt upload "bin/md5" ford-generic-local/services/md5/md5 
+jfrog rt build-collect-env
+jfrog rt build-publish
