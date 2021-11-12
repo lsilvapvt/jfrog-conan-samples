@@ -46,7 +46,8 @@ cat ${BUILD_INFO_FILE} | \
     jq --arg name    "${MY_BUILD_NAME}" \
        --arg number  "${MY_BUILD_NUMBER}" \
        --arg started "${MY_BUILD_STARTDATE}"  \
-       '. + {name: $name,number: $number,started: $started}' > ./build_info.json 
+       --arg url "$BUILD_URL" \
+       '. + {name: $name,number: $number,started: $started,url: $url}' > ./build_info.json 
 
 curl -X PUT -u${RT_USERNAME}:${RT_PASSWORD} \
        -H "Content-type: application/json" \
