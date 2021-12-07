@@ -33,6 +33,8 @@ The easiest way to use it is to deploy Jenkins as a helm chart, which installs a
     jenkins/jenkins
   ```
   where the `agent.*` parameters should point to the container registry to which the custom container image of the Jenkins agent with Conan tools was published to along with the corresponding tag.
+
+  If you are using an ingress service, the serviceType could be set to `ClusterIP` instead.
   
 ---
 
